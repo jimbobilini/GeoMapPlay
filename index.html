@@ -7,9 +7,6 @@
     <meta name="format-detection" content="telephone=no" />
 
 	<link rel="stylesheet" href="css/jquery.mobile-1.2.1.min.css" />
-	<script src="js/jquery-1.8.3.min.js"></script>
-	<script src="js/jquery.mobile-1.2.1.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script>
 </head> 
 <body> 
 
@@ -20,19 +17,28 @@
 	</div><!-- /header -->
 
 	<div data-role="content">	
-		<p id="geolocation">Finding geolocation...</p>	
+		<p id="geolocation">1.0.2 Finding geolocation...</p>	
 	</div><!-- /content -->
 
 </div><!-- /page -->
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/jquery.mobile-1.2.1.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova-2.6.0.js"></script>
+
 <script>
     // Wait for Cordova to load    //
     document.addEventListener("deviceready", onDeviceReady, false);    
     
     // Cordova is ready    //
-    function onDeviceReady() {navigator.geolocation.getCurrentPosition(onSuccess, onError);}
+    function onDeviceReady() {
+    	alert('device ready');
+    	navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
         
     // onSuccess Geolocation    //
-    function onSuccess(position) {    var element = document.getElementById('geolocation');  
+    function onSuccess(position) {
+    							  	  alert('onSuccess');
+									  var element = document.getElementById('geolocation');  
     							      element.innerHTML = 'Latitude: '           
     							      + position.coords.latitude              
     							      + '<br />' 
